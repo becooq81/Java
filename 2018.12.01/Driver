@@ -1,0 +1,8 @@
+public class Driver {
+    public static void main(String[] args) {
+        Name name1 = new Name("Alice", "Kang");
+        Name name2 = new Name("Bella", "Kang");
+        
+        System.out.println(name1.compareTo(name2));
+    }
+}
