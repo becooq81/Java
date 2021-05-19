@@ -1,0 +1,6 @@
+public class Driver {
+    public static void main(String[] args) {
+        TowersOfHanoi towers = new TowersOfHanoi(5);
+        towers.solve();
+    }
+}
