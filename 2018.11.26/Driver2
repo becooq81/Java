@@ -1,9 +1,0 @@
-public class Driver2
-{
-    public static void main(String[] args) {
-        Rational rational1 = new Rational(4, 3);
-        Rational rational2 = new Rational(3, 4);
-        
-        
-    }
-}
