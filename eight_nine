@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class eight_nine {
+    public static void Pascal(int n) {
+        for (int i =0; i < n; i++) {
+            
+            for (int j = 0; j <=i; j++) {
+                System.out.print(calculate(i,j) +" ");
+            }
+            System.out.println("\n");
+        }
+    }
+    
+    public static int calculate(int row, int col) {
+        int value;
+        if (row == 0 || col == 0 || row == col) {
+            value = 1;
+        }
+        else {
+            value = calculate(row-1, col) + calculate (row-1, col-1);
+        }
+        return value;
+    }
+    
+    public static void main(String[] args) {
+        Pascal(9);
+    }
+}
