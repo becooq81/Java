@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+public class Digits {
+    public Digits(int num) {
+        ArrayList<Integer> digitList = new ArrayList<Integer>();
+        if (num == 0) {
+            digitList.add(new Integer(0));
+        }
+        while (num > 0) {
+            digitList.add(0, new Integer(num%10));
+            num = num/10;
+        }
+    }
+    public boolean isStrictlyIncreasing(int n ) {
+        if (n -1 == 0) {
+            return false;
+        }
+        return true;
+    }
+    public void Strasdfa(String str, int n, String repl) {
+        
+        
+    }
+} 
