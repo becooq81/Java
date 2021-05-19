@@ -1,0 +1,59 @@
+public class Driver
+{
+    public static void main(String[] args) {
+        KillableCharacter monster;
+        Player player = new Player(100);
+        
+        int time = 0;
+        
+        while (time < 3) {
+            int ran = (int) (Math.random() *3); //0~2
+            if (ran == 0) {
+                monster = new Zombie();
+                System.out.println("Your monster is " + monster.monsterType());
+            }
+            else if (ran == 1) {
+                monster = new Ogre();
+                System.out.println("Your monster is " + monster.monsterType());
+            }
+            else {
+                monster = new Skeleton();
+                System.out.println("Your monster is " + monster.monsterType());
+            }
+            monster.health = 100;
+            while (player.HP > 0 && monster.health > 0) {
+                int dom = (int) (Math.random() * 2); // 0 or 1
+                int num = (int) (Math.random() * 2); // 0 or 1
+                if (dom == 0) {
+                    monster.attack(player);
+                    if (num == 0) {
+                        player.defend(monster);
+                    }
+                    
+                }  
+                else {
+                    player.attack(monster);
+                    if (num ==0) {
+                        monster.defend(player);
+                    }
+                    
+                }
+            }
+            
+            if (player.HP <= 0) {
+                System.out.println("The player is dead.");
+                break;
+            }
+            else if (monster.health <= 0) {
+                monster.deathSound();
+                System.out.println(monster.monsterType() + " is dead. \n");
+                time += 1;
+            
+            }
+            if (time ==3) {
+                System.out.println("Congratulations! You killed all the monsters!");
+                break;
+            }
+        }
+    }
+}
