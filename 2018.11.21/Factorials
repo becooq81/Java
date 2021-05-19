@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Factorials {
+    public static void main(String[] args) 
+    {
+        char keepGoing = 'y';
+        Scanner scan = new Scanner(System.in);
+        while (keepGoing == 'y' || keepGoing == 'Y')
+        {
+            System.out.print("Enter an integer: " );
+            scan = new Scanner (System.in);
+            try {
+                int val = scan.nextInt();
+                System.out.println("Factorial(" + val + ") = " + MathUtils.factorial(val));
+
+            }
+            catch (IllegalArgumentException e) {
+                if (e.getMessage().equals("Cannot take a negative number.")) {
+                    System.out.println("That is a negative number. Try again.");
+                }
+                else if (e.getMessage().equals("The number is too big.")) {
+                    System.out.println("That number is too big. Try a smaller number.");
+                }
+            }
+            System.out.print("Another factorial? (y/n) ");
+            keepGoing = scan.next().charAt(0);
+            
+        }
+    }
+}
