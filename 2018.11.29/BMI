@@ -1,0 +1,9 @@
+public class BMI {
+    // Creates and displays the temperature converter GUI
+    public static void main(String[] args) {
+        // Create a new BMIGUI object
+        BMIGUI bmiCalculator = new BMIGUI();
+        // Call the display method for your BMIGUI object
+        bmiCalculator.display();
+    }
+}
