@@ -1,0 +1,30 @@
+public class PalindromeTester {
+    private int length;
+    private String str;
+    
+    public PalindromeTester(String str) {
+        this.str = str;
+        this.length = str.length();
+    }
+
+    int a = 0;
+    
+    public boolean isPalindrome() {
+        
+        if (length <= 1) {
+            return true;
+        }
+        if (str.charAt(a) == str.charAt(str.length()-1)) {
+            a+=1;
+            
+            PalindromeTester nextPalindromeTester = new PalindromeTester(str.substring(a, str.length()-1));
+            return nextPalindromeTester.isPalindrome();
+        }
+        return false;
+    }
+    
+    public static void main(String[] args) {
+        PalindromeTester palin = new PalindromeTester("ABCBA");
+        System.out.println(palin.isPalindrome());
+    }
+}
