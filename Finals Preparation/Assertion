@@ -1,0 +1,8 @@
+public class Assertion
+{
+    public static void main(String[] args) {
+        int x= 5;
+        assert x<4: "x is bigger than 4";
+    }
+    
+}
