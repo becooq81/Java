@@ -1,0 +1,53 @@
+public class Name implements Comparable {
+    private String first;
+    private String last;
+    
+    public Name(String firstName, String lastName)
+    {
+        first = firstName;
+        last = lastName;
+    }
+    
+    public String getFirstName() {
+        return first;
+    }
+    
+    public String getLastName() {
+        return this.last;
+    }
+    
+    public int compareTo(Object name) {
+        // -ve means: this name comes after other name
+        // +ve means: this name comes before other name
+        
+        Name name1 = (Name) name;
+        //Name name2 = new Name(first, last);
+        //name1 goes before 
+        if (name1.getLastName().compareTo(this.getLastName())<0) {
+            //name1 comes after name2
+            return -1;
+        }
+        else if (name1.getLastName().compareTo(this.getLastName())>0){
+            //name1 comes before name2
+            return 1;
+        }
+        else {
+            if (name1.getFirstName().compareTo(this.getFirstName())<0) {
+                //name1 comes after name2
+                return -1;
+            }
+            else if (name1.getFirstName().compareTo(this.getFirstName())>0) {
+                //name1 comes before name2
+                return 1;
+            }
+            else {
+                //the two names are the same
+                return 0;
+            }
+        }
+    }
+    
+    public String toString() {
+        return first + " " + last;
+    }
+}
