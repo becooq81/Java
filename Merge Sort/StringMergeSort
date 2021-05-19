@@ -1,0 +1,57 @@
+public class StringMergeSort{
+    String[] arr = {"a", "f", "c", "e", "d", "g", "b", "h"};
+    int start = 0;
+    int end = arr.length -1;
+    int middle = (end+ start)/2;
+
+    public static void main(String[] args) {
+        String[] arr = {"a", "f", "c", "e", "d", "g", "b", "h"};
+        mergeSort(arr, 0, arr.length-1);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+        }
+    }
+    public static void mergeSort(String[] arr, int start, int end) {
+        if (start < end) {
+            int middle = (end + start) /2;
+            mergeSort(arr, start, middle);
+            mergeSort(arr, middle+1, end);
+            
+            merge(arr, start, middle, end);
+        }
+        
+    }
+    
+    public static void merge (String[] arr, int start, int middle, int end) {
+        String[] temp = new String[(end-start)+1];
+        int index1 = start;
+        int index2 = middle +1;
+        int indexTemp = 0;
+        while (index1 <= middle && index2 <=end) {
+            // compare each item
+            if (arr[index1].compareTo(arr[index2])>0) {
+                temp[indexTemp] = arr[index2];
+                index2++;
+                indexTemp++;
+            }
+            else {
+                temp[indexTemp] = arr[index1];
+                index1++;
+                indexTemp++;
+            }
+        }
+        while (index1 <= middle) {
+            temp[indexTemp] = arr[index1];
+            index1++;
+            indexTemp++;
+        }
+        while (index2<= end) {
+            temp[indexTemp] = arr[index2];
+            index2++;
+            indexTemp++;
+        }
+        for (indexTemp = 0; indexTemp<temp.length; indexTemp++) {
+            arr[start+indexTemp] = temp[indexTemp];
+        }
+    }
+}
