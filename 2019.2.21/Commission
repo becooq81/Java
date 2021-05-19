@@ -1,0 +1,21 @@
+public class Commission extends Hourly
+{
+    double totalSales;
+    double comRate;
+    double empComRate;
+    public Commission(String eName, String eAddress, String ePhone, String socSecNumber, double rate, double empComRate) {
+        super(eName, eAddress, ePhone, socSecNumber, rate);
+        this.empComRate = empComRate;
+    }
+    public void addSales(double totalSales) {
+        this.totalSales += totalSales;
+    }
+    public double pay() {
+        return comRate+super.pay();
+    }
+    public String toString() {
+        String result = super.toString();
+        result += "\nTotal Sales: " + this.totalSales;
+        return result;
+    }
+}
