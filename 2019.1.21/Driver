@@ -1,0 +1,13 @@
+public class Driver{
+    public static void main(String[] args) {
+        Sorts sorts = new Sorts();
+        int array[] = {4,2,3,1,5};
+        // selectionSort(array);
+        //         insertionSort(array);
+        // for (int i = 0; i < array.length; i++) {
+            // System.out.println(array[i]);
+        // }
+    
+        
+    }
+}
