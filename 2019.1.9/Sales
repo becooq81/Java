@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class Sales {
+    public static void main(String[] args) {
+        System.out.println("Type in the number of salespeople.");
+        Scanner scan = new Scanner(System.in);
+        
+        int salespeople = scan.nextInt();
+        int[] sales = new int[salespeople];
+        int sum;
+        int max, min;
+        
+        for (int i = 0; i<sales.length; i++) {
+            System.out.print("Enter sales for salesperson " + (i+1) + ": " );
+            sales[i] = scan.nextInt();
+        }
+        System.out.println("\nSalesperson   Sales");
+        System.out.println("---------------------");
+        sum = 0;
+        for (int i = 0; i<sales.length; i++) {
+            int j = i+1;
+            System.out.println("    " + j + "       " + sales[i]);
+            sum += sales[i];
+        }
+        System.out.println("\nTotal sales: " + sum);
+        System.out.println("Average sale: " + sum/salespeople);
+        
+        //how to find max & min
+        max = sales[0];
+        for (int i = 1; i<sales.length; i++) {
+            if (sales[i-1] <= sales[i]) {
+                max = i;
+            }
+        }
+        System.out.println("Salesperson " + (max+1) + " had the highest sale with $" + sales[max] + ".");
+        min = sales[0];
+        for (int i = 1; i<sales.length; i++) {
+            if (sales[i-1] >= sales[i]) {
+                min = i;
+            }
+        }
+        System.out.println("Salesperson " + (min+1) + " had the lowest sale with $" + sales[min] + ".");
+        
+        System.out.println("\nType in a value.");
+        int val = scan.nextInt();
+        int count = 0;
+        System.out.print("Salesperson ");
+        for (int i = 0; i<sales.length; i++) {
+            if (sales[i]>val) {
+                System.out.print(i + ", with sale of $" + sales[i] + ", ");
+                count++;
+            }
+        }
+        System.out.print("has higher sale than $" + val + "."); 
+        System.out.println("\nThere are " + count + " salespeople who exceed that value.");
+        
+    }
+}
