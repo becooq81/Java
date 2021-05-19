@@ -1,0 +1,7 @@
+public interface Lockable{
+    int key=0;
+    public void setKey(int x);
+    public void lock(int y);
+    public void unlock(int z);
+    public boolean locked();
+}
