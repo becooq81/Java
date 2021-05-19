@@ -1,0 +1,55 @@
+public class practice {
+    String[] arr = {"a", "c", "f", "b", "d", "g","e"};
+    int start = 0;
+    int end = arr.length-1;
+    int middle = (start+end)/2;
+    public static void main(String[] args) {
+        String[] arr = {"a", "c", "f", "b", "d", "g","e"};
+        mergeSort(arr, 0, arr.length-1);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+        }
+    }
+    public static void mergeSort(String[] arr, int start, int end) {
+        
+        if (start < end ) {
+            int middle = (start+end)/2;
+            mergeSort(arr, 0, middle);
+            mergeSort(arr, middle+1, end);
+            merge(arr, start, middle, end);
+            
+        }
+    }
+    public static void merge(String[] arr, int start, int middle, int end) {
+        String[] temp = new String[end-start+1];
+        int indexTemp = 0;
+        int index1 = start;
+        int index2 = middle+1;
+        while (index1 <= middle && index2 <= end) {
+            if (arr[index1].compareTo(arr[index2])>0) {
+                temp[indexTemp] = arr[index2];
+                index2++;
+                indexTemp++;
+            }
+            else {
+                temp[indexTemp] = arr[index1];
+                index1++;
+                indexTemp++;
+                
+            }
+        }
+        while (index1 <= middle) {
+            temp[indexTemp] = arr[index1];
+            index1++;
+            indexTemp++;
+        }
+        while (index2 <= end) {
+            temp[indexTemp] = arr[index2];
+            index2++;
+            indexTemp++;
+        }
+        for (indexTemp = 0; indexTemp < temp.length; indexTemp++) {
+            arr[start+indexTemp] = temp[indexTemp];
+        }
+    }
+}
